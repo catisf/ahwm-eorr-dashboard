@@ -1,0 +1,18 @@
+/* Timeline slider colour */
+#time-slider .rc-slider-track {
+   background-color: #0B4F9C
+}
+
+#time-slider .rc-slider-handle {
+    border-color: #0B4F9C;
+    background-color: #0B4F9C;
+}
+
+#time-slider .rc-slider-dot-active {
+    border-color: #0B4F9C;
+}
+
+/* Hide numeric value box */
+#time-slider input[type="number"] {
+    display: none;
+}
