@@ -5,12 +5,11 @@ import pandas as pd
 
 # %% 
 # set path
-file_path = 'C:\\Users\\sancheac\\OneDrive - University of Birmingham\\Documents\\AHWM\\ahwm-eorr-dashboard\\data\\'
-
+#file_path = 'C:\\Users\\sancheac\\OneDrive - University of Birmingham\\Documents\\AHWM\\ahwm-eorr-dashboard\\data\\'
 # %%
 #################### attainment data ###########################
-
-df_att = pd.read_csv(os.path.join(file_path, '202425_all_state_funded_pupils_characteristics_and_geography_breakdowns_revised.csv'))
+url_att = 'https://bham.sharepoint.com/sites/aimhigherwm-staff/Shared%20Documents/AHWM%202012%20Onwards/Evaluation%20-%20Cati/Regional%20Risk%20Register/ahwm-eorr-dashboard/data/202425_all_state_funded_pupils_characteristics_and_geography_breakdowns_revised.csv?d=w7acf5ef51c774f44823130d1aa6ef90f&csf=1&web=1&e=uIu8xJ'
+df_att = pd.read_csv(url_att)
 df_att['time_period'] = df_att['time_period'].astype(str)
 df_att = df_att.sort_values("time_period")
 
@@ -41,8 +40,8 @@ df_att_combined = pd.concat([df_att_national,df_att_wm], ignore_index=True)
 
 # %%
 ###################### school profiles ###############################
-
-df_schools = pd.read_excel(os.path.join(file_path, '2023_10_12 AHWM and EMWPREP Secondary School Profiles FINAL.xlsx'))
+url_schools = 'https://bham.sharepoint.com/sites/aimhigherwm-staff/Shared%20Documents/AHWM%202012%20Onwards/Evaluation%20-%20Cati/Regional%20Risk%20Register/ahwm-eorr-dashboard/data/2023_10_12%20AHWM%20and%20EMWPREP%20Secondary%20School%20Profiles%20FINAL.xlsx?d=wb66ec47a4a144c178bd01ba6ce208f72&csf=1&web=1&e=Q8FTER'
+df_schools = pd.read_excel(url_schools)
 df_schools_wm = df_schools[df_schools['LA'].isin(LAs)]
 
 cols_to_drop = ["GOR", "LAEstab Number", "Establishment Status", 
