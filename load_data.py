@@ -5,7 +5,7 @@ import pandas as pd
 
 # %% 
 # set path
-file_path = 'N:/Outreach Office/Restricted/Aimhigher/Aimhigher 2011-12 onwards/Evaluation - Cati/Regional Risk Register/dashboard/data/'
+file_path = 'C:\\Users\\sancheac\\OneDrive - University of Birmingham\\Documents\\AHWM\\ahwm-eorr-dashboard\\data\\'
 
 # %%
 #################### attainment data ###########################
