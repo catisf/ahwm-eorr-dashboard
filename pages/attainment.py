@@ -35,7 +35,6 @@ student_dropdown = html.Div([
 measure = html.Div([
     html.P('Measure:'),
     dcc.RadioItems(['Attainment 8',
-                    'Progress 8',
                     '4 or above in English and maths GCSEs',
                     '5 or above in English and maths GCSEs'],
                     'Attainment 8',
@@ -76,7 +75,6 @@ layout = dbc.Container([
         html.Br(),
         time_slider,
         html.Br(),
-        html.P('NOTE: Progress 8 is not being published in 2024/25 as KS4 pupils in this year do not have KS2 assessments due to the COVID-19 pandemic. Progress 8 was also not published in 2020 or 2021 because of the COVID-19 pandemic.')
         ])
     )],
     fluid=True,

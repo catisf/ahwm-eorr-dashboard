@@ -12,11 +12,11 @@ data_path = BASE_DIR / "data"
 #################### attainment data ###########################
 df_att = pd.read_csv(data_path / '202425_all_state_funded_pupils_characteristics_and_geography_breakdowns_revised_wm.csv')
 df_att['time_period'] = df_att['time_period'].astype(str)
-df_att = df_att.sort_values("time_period")
+df_att_combined = df_att.sort_values("time_period")
 
 #drop years where we don't have relevant data
-to_drop = ['200910', '201011', '201112', '201213', '201314', '201415', '201516', '201617', '201718']
-df_att = df_att[~df_att['time_period'].isin(to_drop)]
+#to_drop = ['200910', '201011', '201112', '201213', '201314', '201415', '201516', '201617', '201718']
+#df_att = df_att[~df_att['time_period'].isin(to_drop)]
 
 #last data available only
 #df_att = df_att[df_att['time_period'] == '202425']
@@ -25,12 +25,12 @@ df_att = df_att[~df_att['time_period'].isin(to_drop)]
 LAs = [ 'National','Birmingham', 'Coventry', 'Dudley', 'Sandwell', 'Solihull', 'Walsall',
        'Wolverhampton', 'Worcestershire', 'Herefordshire, County of', 'Warwickshire']
 
-df_att_wm = df_att[df_att['la_name'].isin(LAs)]
+#df_att_wm = df_att[df_att['la_name'].isin(LAs)]
 
-df_att_national = df_att[df_att['geographic_level'] == 'National']
-df_att_national['la_name'] = 'National'
+#df_att_national = df_att[df_att['geographic_level'] == 'National']
+#df_att_national['la_name'] = 'National'
 
-df_att_combined = pd.concat([df_att_national,df_att_wm], ignore_index=True)
+#df_att_combined = pd.concat([df_att_national,df_att_wm], ignore_index=True)
 
 # %%
 #################### IMD data ###########################
