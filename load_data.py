@@ -10,7 +10,8 @@ data_path = BASE_DIR / "data"
 
 # %%
 #################### attainment data ###########################
-df_att = pd.read_csv(data_path / '202425_all_state_funded_pupils_characteristics_and_geography_breakdowns_revised_wm.csv')
+df_att = pd.read_csv(data_path / '202425_all_state_funded_pupils_characteristics_and_geography_breakdowns_revised_wm.csv',
+                     low_memory=False)
 df_att['time_period'] = df_att['time_period'].astype(str)
 df_att_combined = df_att.sort_values("time_period")
 
