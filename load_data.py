@@ -1,14 +1,16 @@
 # %%
 # import libraries
-import os
+from pathlib import Path
 import pandas as pd
 
 # %% 
 # set path
-file_path = 'C:\\Users\\sancheac\\OneDrive - University of Birmingham\\Documents\\AHWM\\ahwm-eorr-dashboard\\data\\'
+BASE_DIR = Path(__file__).resolve().parent
+data_path = BASE_DIR / "data"
+
 # %%
 #################### attainment data ###########################
-df_att = pd.read_csv(os.path.join(file_path, '202425_all_state_funded_pupils_characteristics_and_geography_breakdowns_revised_wm.csv'))
+df_att = pd.read_csv(data_path / '202425_all_state_funded_pupils_characteristics_and_geography_breakdowns_revised_wm.csv')
 df_att['time_period'] = df_att['time_period'].astype(str)
 df_att = df_att.sort_values("time_period")
 
@@ -39,7 +41,7 @@ df_att_combined = pd.concat([df_att_national,df_att_wm], ignore_index=True)
 
 # %%
 ###################### school profiles ###############################
-df_schools = pd.read_excel(os.path.join(file_path, '2023_10_12 AHWM and EMWPREP Secondary School Profiles FINAL.xlsx'))
+df_schools = pd.read_excel(data_path / '2023_10_12 AHWM and EMWPREP Secondary School Profiles FINAL.xlsx')
 df_schools_wm = df_schools[df_schools['LA'].isin(LAs)]
 
 cols_to_drop = ["GOR", "LAEstab Number", "Establishment Status", 
