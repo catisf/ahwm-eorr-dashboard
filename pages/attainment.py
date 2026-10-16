@@ -26,12 +26,26 @@ la_dropdown = html.Div([
     dcc.Dropdown(LAs, 'National', id='la-dropdown')]
                             )
 
+#student_dropdown = html.Div([
+#    html.P('Student characteristic:'),
+#    dcc.Dropdown(df_att_combined['breakdown_topic'].unique(),
+#                 'FSM status',
+#                 id='student-dropdown')]
+#                        )
+
 student_dropdown = html.Div([
     html.P('Student characteristic:'),
-    dcc.Dropdown(df_att_combined['breakdown_topic'].unique(),
+    dcc.Dropdown(['FSM status',
+                  'Sex',
+                  'Sex by ethnicity',
+                  'Sex by ethnicity by FSM status',
+                  'Young carer'
+                  ],
                  'FSM status',
                  id='student-dropdown')]
-                        )
+    )
+
+
 measure = html.Div([
     html.P('Measure:'),
     dcc.RadioItems(['Attainment 8',
